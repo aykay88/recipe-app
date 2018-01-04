@@ -2,11 +2,20 @@
   "name": "server",
   "version": "1.0.0",
   "description": "node server for recipe app",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "build": "tsc && nodemon dist/server.js",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/server.ts",
+    "start": "ts-node src/server.ts"
   },
   "author": "akaiser",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.0-rc1",
+    "nodemon": "^1.14.7",
+    "typescript": "^2.6.2"
+  }
 }
