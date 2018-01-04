@@ -1,6 +1,6 @@
 import {Schema, model} from 'mongoose';
 
-const RecipeSchema = new Schema({
+const RecipeScheme = new Schema({
     name: {
         type: String,
         required: [true, 'Name field is required']
@@ -13,6 +13,6 @@ const RecipeSchema = new Schema({
     ]
 });
 
-export const Recipe = model('recipe', RecipeSchema);
+export const Recipe = model('recipe', RecipeScheme);
 
 
