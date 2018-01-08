@@ -10,9 +10,21 @@ routes.get('/recipes/:name', (req, res, next) => {
 });
 
 routes.get('/recipes/', (req, res, next) => {
-    Recipe.find({}).then((ninjas) => {
-        res.send(ninjas);
+    Recipe.find({}).then((recipes) => {
+        res.send(recipes);
     });
+});
+routes.get('/random/', (req, res, next) => {
+    Recipe.count().exec( (err, count) => {
+
+        const random = Math.floor(Math.random() * count);
+
+        Recipe.findOne().skip(random).exec(
+             (err, result) => {
+                 console.log('a request was made');
+                 res.send({result});
+            });
+    })
 });
 
 routes.post('/recipes', async (req, res, next) => {
